@@ -9,7 +9,7 @@
 import UIKit
 
 class TodoListViewController: UITableViewController {
-    let itemArray = ["Find Mike", "Buy Eggos", "Destroy Demogorgon"]
+    var itemArray = ["Find Mike", "Buy Eggos", "Destroy Demogorgon"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,7 +50,9 @@ class TodoListViewController: UITableViewController {
         
         let action = UIAlertAction(title: "Add Item", style: .default) { (action) in
            
-           
+            self.itemArray.append(textField.text!)
+//            self.tableView.reloadRowsAtIndexPaths(itemArray, withRowAnimation: UITableView.RowAnimation.None)
+            self.tableView.reloadData()
         }
         
         alert.addTextField { (alertTextField) in
